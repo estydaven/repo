@@ -8,14 +8,18 @@
 	<meta name="description" content="Codaslider : JQuery Slider Plugin" />
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/slick.css" />
 	<link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
+	<link rel="icon" href="img/logo.png" type="image/png">
+		<link rel="shortcut icon" href="img/logo.png" type="image/png">
+	
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic" rel="stylesheet">
 </head>
 
 <body>
-
+<a href="#consult" class="btn-consult2" data-toggle="modal" data-target="#consult" >Заказать консультацию</a>
 	<header class="header">
 		<div class="container">
 			<div class="row">
@@ -54,7 +58,7 @@
 									<a href="#contacts">Контакты</a>
 								</li>
 								<li class="post hidden-sm hidden-xs">
-									<a href="#"><span class="glyphicon glyphicon glyphicon-envelope"></span> fireline01@bk.ru</a>
+									<a href="mailto:fireline01@bk.ru"><span class="glyphicon glyphicon glyphicon-envelope"></span> fireline01@bk.ru</a>
 								</li>
 								<li class="tel hidden-sm hidden-xs">+7(499)394-09-31
 									<br>+7(925)100-05-30</li>
@@ -76,7 +80,9 @@
 	</header>
 	<!--HEADER END-->
 	<!--First block-->
+	
 	<section class="first">
+		
 		<div class="container">
 			<h1 class="first-title">Современное техническое
 				<br>обслуживание</h1>
@@ -87,7 +93,7 @@
 						<h2 class="first-subtitle">При заключении досрочного договора вы получаете в
 							<span>подарок</span>
 						</h2>
-						<a href="#" class="first-link">подробнее</a>
+						<a href="#tech" class="first-link">подробнее</a>
 					</div>
 				</div>
 				<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -231,9 +237,9 @@
 	<section class="service">
 		<div class="service-wrap">
 			<div class="slider-nav">
+				<div class="service-item" id="tech">Техническое обслуживание</div>
 				<div class="service-item">Проектирование</div>
-				<div class="service-item">Монтаж и модернизация</div>
-				<div class="service-item">Техническое обслуживание</div>
+				<div class="service-item">Монтаж и модернизация</div>				
 				<div class="service-item">Расчет риска и СТУ</div>
 				<div class="service-item">Огнезащита</div>
 				<div class="service-item">Аутсорсинг и аудит пожарной безопасности</div>
@@ -765,14 +771,14 @@
 						<img src="img/logo.png" alt="" class="img-responsive hidden-xs hidden-sm">
 					</div>
 					<div class="social-left">
-						<a href="#">
-							<img src="img/vk.png" alt="">
+						<a href="#" class="soc">
+							<span class="s"><i class="fa fa-vk" aria-hidden="true"></i></span>
 						</a>
-						<a href="#">
-							<img src="img/youtube.png" alt="">
+						<a href="#" class="soc">
+							<span class="s2"><i class="fa fa-youtube-square" aria-hidden="true"></i></span>
 						</a>
-						<a href="#">
-							<img src="img/insta.png" alt="">
+						<a href="#" class="soc">
+							<span class="s3"><i class="fa fa-instagram" aria-hidden="true"></i></span>
 						</a>
 					</div>
 					<p class="footer-p">Услуги по обеспечению пожарной безопасности</p>
@@ -841,27 +847,13 @@
 	  </div>
 	  <div class="slide-form2">
 
-										<h1 class="slide-title">Калькулятор расчета</h1>
+										<h1 class="slide-title">Получить консультацию</h1>
 										<form>
-											<div class="form-group">
-												<select class="form-control form-pic" id="exampleFormControlSelect1">
-													<option>Вид системы</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
-													<option>5</option>
-												</select>
-												<select class="form-control form-pic" id="exampleFormControlSelect1">
-													<option>Назначение здания/помещения</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
-													<option>5</option>
-												</select>
-												<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Общая площадь">
-												<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Количество точек">
-												<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Цена">
-												<button type="submit" class="btn-price">Рассчитать стоимость</button>												
+											<div class="form-group">												
+												<input type="phone" class="form-control" id="exampleFormControlInput1" placeholder="Ваш телефон">
+												<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Удобное время для звонка">
+												
+												<button type="submit" class="btn-price">Получить консультацию</button>												
 											</div>
 
 										</form>
@@ -881,7 +873,19 @@
 	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript">
-
+		$(document).ready(function(){
+$('a[href*=#]').bind("click", function(e){
+var anchor = $(this);
+$('html, body').stop().animate({
+scrollTop: $(anchor.attr('href')).offset().top
+}, 1000);
+e.preventDefault();
+});
+return false;
+});
+	</script>
+	<script type="text/javascript">
+		
 		$(document).ready(function () {
 			$('#myTabs a').click(function (e) {
 				e.preventDefault()
